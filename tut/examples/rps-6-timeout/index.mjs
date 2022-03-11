@@ -18,6 +18,7 @@ const HAND = ["Rock", "Paper", "Scissors"]
 const OUTCOME = ["Bob wins", "Draw", "Alice wins"]
 
 const Player= (who) =>({
+    ...stdlib.hasRandom,
     getHand:()=>{
         const hand = Math.floor(Math.random()*3)
          console.log(`${who} played ${HAND[hand]}`);
@@ -25,8 +26,14 @@ const Player= (who) =>({
     },
     seeOutcome: (outcome)=>{
             console.log(`${who} saw outcome ${OUTCOME[outcome]}`);
+    },
+    inforTimeout: ()=>{
+      console.log(`${who} observed a timeout`)
     }
+
 })
+
+
 await Promise.all([
   ctcAlice.p.Alice({
     ...Player("Alice"),
