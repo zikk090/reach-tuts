@@ -2,6 +2,7 @@ import {loadStdlib} from "@reach-sh/stdlib"
 import  * as backend from "./build/index.main.mjs"
 const stdlib = loadStdlib()
 
+
 const startingBalance = stdlib.parseCurrency(100)
 const accAlice =  await stdlib.newTestAccount(startingBalance)
 const accBob = await stdlib.newTestAccount(startingBalance)
@@ -19,9 +20,17 @@ const OUTCOME = ["Bob wins", "Draw", "Alice wins"]
 
 const Player= (who)   =>({
     ...stdlib.hasRandom,
-    getHand:()=>{
+    getHand: async ()=>{
         const hand = Math.floor(Math.random()*3)
          console.log(`${who} played ${HAND[hand]}`);
+           if (Math.random() <= 0.01) {
+             for (let i = 0; i < 10; i++) {
+               console.log(
+                 ` ${who} takes their sweet time sending it back...`
+               );
+               await stdlib.wait(1);
+             }
+           }
          return hand;        
     },
     seeOutcome: (outcome)=>{
