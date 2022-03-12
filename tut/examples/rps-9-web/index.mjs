@@ -1,5 +1,5 @@
 import { loadStdlib, ask } from "@reach-sh/stdlib";
-import * as backend from "./build/index.main.mjs";
+import * as backend from "./build/index.main.mjs.js.js";
 const stdlib = loadStdlib();
 
 const isAlice = await ask.ask(`Are you Alice?`, ask.yesno);
