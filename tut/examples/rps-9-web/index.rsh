@@ -39,6 +39,7 @@ export const main = Reach.App(() => {
       interact.informTimeout();
     });
   };
+  
 
     Alice.only(() => {
       const wager = declassify(interact.wager);
