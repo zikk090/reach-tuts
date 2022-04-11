@@ -133,7 +133,7 @@ const Player = (who) => ({
 //   ctcBob.p.Bob({
 //     // implement Bob's interact object here
 //     ...Player("Bob"),
-//     acceptWager: async (amt) => {
+//    accept Wager: async (amt) => {
 //       if (Math.random() <= 0.5) {
 //         for (let i = 0; i < 10; i++) {
 //           console.log(`  Bob takes his sweet time...`);
